@@ -10,7 +10,7 @@ from gamestate import *
 # Private Attributes
 
 
-class Player():
+class Player(object):
 
     # Class Attributes
     name = ""
@@ -61,6 +61,9 @@ class Player():
         return success
 
     def save(self):
+        if not os.path.exists("players/"):
+            os.mkdir("players/")
+
         path = "players/%s.sav" % (self.name.lower())
         file = open(path, 'w')
 
